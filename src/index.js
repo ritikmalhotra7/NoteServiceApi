@@ -15,11 +15,14 @@ app.use("/notes",noteRouter);
 app.use(cors());
 
 app.get("/",(request,response)=>{
-        response.send("Notes APi");
+        response.send("Notes API");
 });
 
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
+    if(PORT == null || PORT == ""){
+        PORT = 8080;
+    }
     app.listen(PORT,()=>{
         console.log("Server start on port ")
     });
