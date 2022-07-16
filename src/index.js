@@ -18,7 +18,7 @@ app.get("/",(request,response)=>{
         response.send("Notes API");
 });
 console.log(process.env.MONGO_URL);
-mongoose.connect( "mongodb+srv://admin:ritik123@cluster0.r910w.mongodb.net/notes_db?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
     if(PORT == null || PORT == ""){
         PORT = 8834;
