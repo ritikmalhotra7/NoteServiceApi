@@ -15,9 +15,9 @@ app.use("/users",userRouter);
 app.use("/notes",noteRouter);
 
 
-// app.get("/",(request,response)=>{
-//         response.send("Notes API");
-// });
+app.get("/",(request,response)=>{
+        response.send("Notes API");
+});
 console.log(process.env.MONGO_URL);
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
