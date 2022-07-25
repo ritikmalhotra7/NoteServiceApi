@@ -11,13 +11,9 @@ dotenv.config();
 
 app.use(express.json());
 app.use(cors());
+
 app.use("/users",userRouter);
 app.use("/notes",noteRouter);
-
-
-app.get("/",(request,response)=>{
-        response.send("Notes API");
-});
 
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
@@ -26,8 +22,4 @@ mongoose.connect(process.env.MONGO_URL)
     });
 }).catch((error)=>{
     console.log(error);
-})
-
-app.get("/", (request,response)=>{
-    response.send("hello");
 });
