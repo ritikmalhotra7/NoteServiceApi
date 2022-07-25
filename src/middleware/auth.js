@@ -3,7 +3,9 @@ const dotenv = require("dotenv");
 const SECRET_KEY = process.env.SECRET_KEY;
 
 dotenv.config();
+
 const auth = (request,response,next)=>{
+    console.log("SECRET:"+SECRET_KEY);
     try{
         let token = request.headers.authorization 
         if(token){
