@@ -7,7 +7,7 @@ const auth = (request,response,next)=>{
         let token = request.headers.authorization 
         if(token){
             token = token.split(" ")[1];
-            let user = jwt.verify(token, process.env.SECRETKEY); 
+            let user = jwt.verify(token, "Notes_api"); 
             request.userId = user.id;
         }else{
             return response.status(401).json({message:"Unauthorized User"});
