@@ -1,7 +1,8 @@
 const userModel = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const SECRET_KEY = "Notes_api";
+const SECRET_KEY = process.env.SECRET_KEY;
+console.log(SECRET_KEY+" helllooooooooooooooooooooooooooooooo");
 const signup = async(request,response)=>{
     const {username,email,password} = request.body;
     try{
@@ -16,7 +17,7 @@ const signup = async(request,response)=>{
             username:username 
         });
         const token = jwt.sign({email:result.email, id:result._id},SECRET_KEY);
-        response.status(200).json({user:result,token:token});
+            response.status(200).json({user:result,token:token});
     }catch(error){
         console.log(error);
         response.status(500).json({message:"Something went wrong"});
