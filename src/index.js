@@ -19,7 +19,6 @@ app.get("/",(request,response)=>{
         response.send("Notes API");
 });
 
-console.log(process.env.MONGO_URL);
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
     app.listen(PORT,()=>{
