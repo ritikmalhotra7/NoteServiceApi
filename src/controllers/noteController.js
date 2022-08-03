@@ -25,7 +25,7 @@ const updateNote = async(request,response)=>{
     const newNote = {
         title:title,
         description:desc,
-        userId:id
+        userId:request.userId
     }
     try {
         console.log(newNote);
