@@ -28,6 +28,7 @@ const updateNote = async(request,response)=>{
         userId:id
     }
     try {
+        console.log(newNote);
         await note.findByIdAndUpdate(id,newNote,{new:true});
         response.status(200).json(newNote);
     } catch (error) {
